@@ -4,6 +4,7 @@
 
 
 !src/
+!etc/
 
 !.babelrc
 !.eslintignore
