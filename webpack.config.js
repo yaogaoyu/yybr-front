@@ -15,6 +15,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const package = require('./package.json');
 const HappyPack = require('happypack');
 
+const defaultTheme = require('./etc/themes/default');
+
 // 打包路径配置
 const config = {
     src: {
@@ -33,6 +35,8 @@ const config = {
 const PATH_NODE_MODULES = Path.resolve(__dirname, 'node_modules');
 // 判断是否是开发模式
 const isDev = process.env.NODE_ENV === 'development';
+// 主题变量
+const theme = defaultTheme;
 
 const pkgConfig =  {
     entry: {
@@ -149,7 +153,7 @@ const pkgConfig =  {
                 {
                     loader: 'less-loader',
                     options: {
-                        // modifyVars: theme,
+                        modifyVars: theme,
                         javascriptEnabled: true
                     }
                 }
@@ -164,7 +168,7 @@ const pkgConfig =  {
                 {
                     loader: 'less-loader',
                     options: {
-                        // modifyVars: theme,
+                        modifyVars: theme,
                         javascriptEnabled: true
                     }
                 }
@@ -231,14 +235,14 @@ const pkgConfig =  {
                     test: /(react|react-dom|react-router-dom)/,
                 },
                 // 单独打包antd包
-                // antd: {
-                //     priority: 100,
-                //     name: 'vendor-antd',
-                //     filename: '[name].min.js?[hash:8]',
-                //     chunks: 'initial',
-                //     minSize: 30000,
-                //     test: /(antd|@ant-design)/,
-                // },
+                antd: {
+                    priority: 100,
+                    name: 'vendor-antdm',
+                    filename: '[name].min.js?[hash:8]',
+                    chunks: 'initial',
+                    minSize: 30000,
+                    test: /antd-mobile/,
+                },
                 // 单独打包其它
                 vendors: {
                     priority: -10,

@@ -1,6 +1,7 @@
 import { View } from 'core/base';
 import { ViewCls, ServiceWired } from 'core/decorator';
 import PropTypes from 'prop-types';
+import { Icon, Button } from 'antd-mobile';
 import IndexService from './IndexService';
 
 export default
@@ -21,14 +22,15 @@ class Index extends View {
         return (
             <div>
                 {this.props.text || 'Index'}
-                <button
-                    type="button"
+                <Icon type="check" />
+                <Button
+                    type="primary"
                     onClick={() => {
                         this.service.update();
                     }}
                 >
                     update
-                </button>
+                </Button>
             </div>
         );
     }

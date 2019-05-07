@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "antd-mobile": "^2.2.13",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "enquire-js": "^0.2.1",
