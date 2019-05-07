@@ -1,37 +1,35 @@
+import { Fragment } from 'react';
 import { View } from 'core/base';
 import { ViewCls, ServiceWired } from 'core/decorator';
-import PropTypes from 'prop-types';
-import { Icon, Button } from 'antd-mobile';
+import { NavBar } from 'antd-mobile';
+// import Link from 'components/Link';
+import { Link } from 'react-router-dom';
 import IndexService from './IndexService';
+import './index.less';
 
 export default
-@ViewCls('index')
+@ViewCls('list')
 class Index extends View {
-    static propTypes = {
-        text: PropTypes.string,
-    };
-
-    static defaultProps = {
-        text: '',
-    };
-
     @ServiceWired(IndexService)
     service;
 
+    componentWillMount() {
+        console.log(this.props);
+    }
+
     render() {
         return (
-            <div>
-                {this.props.text || 'Index'}
-                <Icon type="check" />
-                <Button
-                    type="primary"
-                    onClick={() => {
-                        this.service.update();
-                    }}
+            <Fragment>
+                <NavBar
+                    mode="light"
+                    rightContent={[
+                        <Link key="1" className="nav-right link" to="/collections">收藏夹</Link>,
+                    ]}
                 >
-                    update
-                </Button>
-            </div>
+                    YYBR
+                </NavBar>
+
+            </Fragment>
         );
     }
 }

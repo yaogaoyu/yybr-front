@@ -9,19 +9,21 @@ export default [{
     page: () => {
         return import('../pages/IndexPage');
     },
-// }, {
-//     path: '/tableDemo',
-//     page: () => {
-//         return import('../pages/TableDemo');
-//     },
-// }, {
-//     path: '/third',
-//     page: () => {
-//         return import('../pages/Third');
-//     },
-// }, {
-//     path: '/pureViewTest',
-//     page: () => import('../pages/PurePageDemo'),
+}, {
+    path: '/collections',
+    page: () => {
+        return import('../pages/Collections');
+    },
+}, {
+    path: '/chapters',
+    page: () => {
+        return import('../pages/Chapters');
+    },
+}, {
+    path: '/content',
+    page: () => {
+        return import('../pages/Content');
+    },
 // }, {
 //     path: '/customForm',
 //     page: () => import('../pages/CustomFormDemo'),
